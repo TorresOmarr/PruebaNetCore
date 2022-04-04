@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{220C8DCC-BD16-4935-9254-3F89AFA17BFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{D81294B2-9E64-4516-B66C-3C3E8AE2033A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{8CDE961F-25B2-4E0F-B500-FA7AB203A572}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{220C8DCC-BD16-4935-9254-3F89AFA17BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{220C8DCC-BD16-4935-9254-3F89AFA17BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{220C8DCC-BD16-4935-9254-3F89AFA17BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{220C8DCC-BD16-4935-9254-3F89AFA17BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D81294B2-9E64-4516-B66C-3C3E8AE2033A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81294B2-9E64-4516-B66C-3C3E8AE2033A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81294B2-9E64-4516-B66C-3C3E8AE2033A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81294B2-9E64-4516-B66C-3C3E8AE2033A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CDE961F-25B2-4E0F-B500-FA7AB203A572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CDE961F-25B2-4E0F-B500-FA7AB203A572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CDE961F-25B2-4E0F-B500-FA7AB203A572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CDE961F-25B2-4E0F-B500-FA7AB203A572}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EF481532-3B76-499A-9CC3-67790D85EB0B}
+	EndGlobalSection
+EndGlobal
