@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+mat-form-field{
+    width: 100%;
+}
+
+h3{
+    font-family: 'Rowdies', cursive;
+}
+
+.btn-reg{
+    background-color: #613107e0;
+    border-color: #613107e0;
+
+}

@@ -1,0 +1,114 @@
+
+<h2 mat-dialog-title>{{header}} </h2>
+   <div mat-dialog-content >
+    <div class="row" style="width: 100%;">        
+        <div class="col-12 ">      
+                <br>
+                <form [formGroup]="register" (ngSubmit)="registarUsuario()" >
+                   
+                    <mat-form-field *ngIf="false"  appearance="outline">
+                        <mat-label>Id</mat-label>
+                         <input formControlName="id" matInput>
+                         <mat-icon matSuffix>id</mat-icon> 
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Correo</mat-label>
+                        <input formControlName="correo" matInput placeholder="Correo">
+                        <mat-icon matSuffix>email</mat-icon>
+                        <mat-error *ngIf="register.get('correo')!.hasError('required') && register.get('correo')!.touched ">
+                            El correo es requerido
+                        </mat-error>
+                        <mat-error  *ngIf="register.get('correo')!.hasError('email') && register.get('correo')!.touched "  >
+                            Introduzca un correo valido
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Usuario</mat-label>
+                        <input formControlName="usuario" matInput placeholder="Usuario">
+                        <mat-icon matSuffix>person</mat-icon>
+                        <mat-error *ngIf="register.get('usuario')!.hasError('required') && register.get('usuario')!.touched ">
+                            El usuario es requerido
+                        </mat-error>
+                        <mat-error style="overflow: visible; margin-right:0px; padding-right: 0px;"    *ngIf="register.get('usuario')!.hasError('pattern') && register.get('usuario')!.touched "  >
+                            El usuario debe ser alfanumerico y
+                             de al menos 7 caracteres
+                        </mat-error >
+                      
+                           
+                    </mat-form-field>    
+                    
+                    <mat-form-field appearance="outline">
+                        <mat-label>Contraseña</mat-label>
+                        <input formControlName="password" matInput  [type]="hide ? 'password' : 'text'" placeholder="password">
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error  *ngIf="register.get('password')!.hasError('required')  && register.get('password')!.touched ">
+                            La contraseña es requerida
+                        </mat-error>                        
+                        <mat-error *ngIf="register.get('password')!.hasError('pattern')  && register.get('password')!.touched " >
+                                                    
+                                La contraseña debe contener al menos:
+                               
+                                <ul>
+                                    <li> una minuscula</li>
+                                    <li> una mayuscula</li>
+                                    <li> un simbolo</li>
+                                    <li> un numero</li>
+                                    <li> una longitud de al menos 10 caracteres. </li>
+                                </ul>
+                            
+                            
+                        </mat-error>
+                    </mat-form-field>  
+                    <div *ngIf="register.get('password')!.hasError('pattern')  && register.get('password')!.touched ">
+                    <br><br><br>
+                    </div>
+
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirmar Contraseña</mat-label>
+                        <input formControlName="confirmPassword" [type]="hide ? 'password' : 'text'" matInput placeholder="Confirmar Contraseña">
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>                        
+                        <mat-error *ngIf="register.hasError('notSame')" >                            
+                            <span    >
+                                Las contraseñas no coinciden
+                            </span>
+                        </mat-error >
+                        
+                        <mat-hint *ngIf="register.hasError('notSame')">
+                            <span class="text-danger"  >
+                                Las contraseñas no coinciden
+                            </span>
+                        </mat-hint>
+                       
+                    </mat-form-field>     
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Sexo</mat-label>
+                        <mat-select placeholder="seleccione el sexo" formControlName="sexo" required >
+                            <mat-option value="1">Masculino</mat-option>
+                            <mat-option value="2">Femenino</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="register.get('sexo')!.hasError('required') ">
+                            El sexo es requerido
+                        </mat-error>                      
+                    </mat-form-field>
+
+                    <div mat-dialog-action [align]="'end'">
+                        <button mat-raised-button color="warn" mat-dialog-close>Cerrar</button>
+                        <button class="ml-2" mat-raised-button [disabled]="register.invalid" color="primary" >{{actionBtn}}</button>
+                    </div>
+                
+                   
+                </form>            
+        </div>
+
+    </div>
+   </div>
+   
+   
+   
+   
+   
+

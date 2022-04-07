@@ -94,9 +94,8 @@ namespace WebAPI.Controllers
 
         [Authorize]
         [HttpPut("{id}")]
-        public async Task<ActionResult<string>> UpdateUser(int id, RegisterUserDto regUserDto)
+        public async Task<ActionResult<string>> UpdateUser(RegisterUserDto regUserDto)
         {
-            regUserDto.Id = id;
             User user = _mapper.Map<RegisterUserDto, User>(regUserDto);
             int result = await _userService.UpdateUser(user);
             string mensaje = _userService.getResultMessage(result);

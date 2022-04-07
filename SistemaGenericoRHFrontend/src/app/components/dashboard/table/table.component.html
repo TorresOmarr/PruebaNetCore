@@ -1,0 +1,64 @@
+<div class="container mt-3">
+    <mat-form-field style="width: 100%;" appearance="outline">
+        <mat-label style="color: azure;">Filtrar</mat-label>
+        <input style="color: azure;" matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input>
+    </mat-form-field>
+
+    <div class="example-container mat-elevation-z8">
+
+        <div class="example-table-container ">
+
+            <table mat-table [dataSource]="dataSource" class="example-table" matSort matSortActive="created"
+                matSortDisableClear matSortDirection="desc">
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                    <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+                </ng-container>
+
+                <!-- Progress Column -->
+                <ng-container matColumnDef="correo">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo </th>
+                    <td mat-cell *matCellDef="let row"> {{row.correo}}% </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="usuario">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </th>
+                    <td mat-cell *matCellDef="let row"> {{row.usuario}} </td>
+                </ng-container>
+
+                <!-- Fruit Column -->
+                <ng-container matColumnDef="sexoDescripcion">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Sexo </th>
+                    <td mat-cell *matCellDef="let row"> {{row.sexoDescripcion}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="estatus">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Estatus </th>
+                    <td mat-cell *matCellDef="let row"> {{row.estatus}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action" >
+                    <th mat-header-cell  style="min-width: 100px;"*matHeaderCellDef mat-sort-header> Action </th>
+                    <td class="p-0 mr-0" mat-cell *matCellDef="let row">
+                        <button class="p-0 mr-0" mat-icon-button color="primary"  >
+                            <mat-icon (click)="editarUsuario(row)" >edit</mat-icon>
+                        </button>
+                        <button class="p-0 mr-0" mat-icon-button color="warn" (click)="eliminarUsuario(row.id)">                            
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+            </table>
+        </div>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+</div>

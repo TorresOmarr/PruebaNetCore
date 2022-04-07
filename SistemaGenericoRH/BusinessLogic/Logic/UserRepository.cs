@@ -47,7 +47,6 @@ namespace BusinessLogic.Logic
         {
             return await _context.User
                 .Include(u => u.Sexo)
-                .Where(u => u.Estatus == true)
                 .ToListAsync();
         }
 
@@ -78,7 +77,12 @@ namespace BusinessLogic.Logic
 
         public async Task<int> deleteUser(User user)
         {
-            user.Estatus = false;
+            User usuario = await getUserByIdAsync(user.Id);
+
+            if (usuario != null)
+            {
+                user.Estatus = false;
+            }                          
 
             return await _context.SaveChangesAsync();
         }

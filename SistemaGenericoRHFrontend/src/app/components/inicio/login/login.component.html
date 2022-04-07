@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row" style="width: 100%">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card text-center" style="padding: 20px;" >
+                <h3>Login</h3>
+                <br>
+                <form [formGroup]="login" (ngSubmit)="log()" >
+                    <mat-form-field appearance="outline">
+                        <mat-label>Correo</mat-label>
+                        <input formControlName="correo" matInput placeholder="Correo">
+                        <mat-icon matSuffix>email</mat-icon>
+                        <mat-error *ngIf="login.get('correo')!.hasError('required') && login.get('correo')!.touched ">
+                            El correo es requerido
+                        </mat-error>
+                        <mat-error  *ngIf="login.get('correo')!.hasError('email') && login.get('correo')!.touched "  >
+                            Introduzca un correo valido
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Contraseña</mat-label>
+                        <input formControlName="password" matInput  [type]="hide ? 'password' : 'text'" placeholder="password">
+                        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        <mat-error  *ngIf="login.get('password')!.hasError('required')  && login.get('password')!.touched ">
+                            La contraseña es requerida
+                        </mat-error>                        
+                        <mat-error *ngIf="login.get('password')!.hasError('pattern')  && login.get('password')!.touched " >
+                                                    
+                                La contraseña debe contener al menos:
+                               
+                                <ul>
+                                    <li> una minuscula</li>
+                                    <li> una mayuscula</li>
+                                    <li> un simbolo</li>
+                                    <li> un numero</li>
+                                    <li> una longitud de al menos 10 caracteres. </li>
+                                </ul>
+                            
+                            
+                        </mat-error>
+                    </mat-form-field> 
+
+                    <div *ngIf="login.get('password')!.hasError('pattern')  && login.get('password')!.touched ">
+                        <br><br><br>
+                        </div>                   
+                    <div class="form-group">   
+                        <div mat-dialog-action [align]="'center'">
+                            <button mat-raised-button color="warn" routerLink="/bienvenidos">Volver</button>
+                            <button class="ml-2" mat-raised-button [disabled]="login.invalid" color="primary" type="submit" >Aceptar</button>
+                        </div>
+                        
+                      
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

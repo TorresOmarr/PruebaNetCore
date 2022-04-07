@@ -11,6 +11,7 @@ namespace WebAPI.Dtos.UserDtos
         public int Id { get; set; }
         public string Correo { get; set; }
         public string Usuario { get; set; }
+        public int SexoId { get; set; }
         public string SexoDescripcion { get; set; }
         public bool Estatus { get; set; } 
         public string Token { get; set; }

@@ -1,0 +1,7 @@
+.layout{
+    background: linear-gradient(rgba(0,0,0,0.025), rgba(0,0,0,0.025)), url("../../../assets/img/RH.jpg");    
+    background-size: cover;
+    background-position: center;   
+    height: 100%;
+    width: 100%;    
+}
