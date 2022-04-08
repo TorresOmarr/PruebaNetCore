@@ -36,5 +36,13 @@ export class LoginService {
     const decodedToken = helper.decodeToken(localStorage.getItem('token') || undefined);
     return decodedToken;
   }  
+
+  getToken():string | null{
+    return localStorage.getItem('token');
+  }
+
+  removeToken(): void{
+    localStorage.removeItem('token');
+  }
   
 }

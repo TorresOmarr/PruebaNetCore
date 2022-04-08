@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { RegisterUserDto } from '../models/registerUserDto';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -17,13 +17,16 @@ export class UsuarioService {
     this.myApiUrl = "api/User/";
   }
 
+  $emitter = new EventEmitter();
+
   
   registrarUsuario(registerUserDto: RegisterUserDto): Observable<Respuesta>{
     return this.http.post<Respuesta>(this.myAppUrl + this.myApiUrl + 'CrearUsuario', registerUserDto )
   }
 
-  consultarUsuarios(): Observable<Usuario[]>{
+  consultarUsuarios(): Observable<Usuario[]>{ 
     return this.http.get<Usuario[]>(this.myAppUrl + this.myApiUrl + 'Usuarios');
+    
   }
 
   actualizarUsuario(user: RegisterUserDto): Observable<Respuesta>{

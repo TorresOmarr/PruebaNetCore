@@ -1,11 +1,11 @@
 <mat-toolbar color="primary">
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon routerLink="/login" >supervised_user_circle</mat-icon>
+      <mat-icon routerLink="/login" (click)="removerToken()" >logout</mat-icon>
     </button>
     <span>Consulta Usuarios</span>
     <span class="example-spacer"></span>
     <button mat-raised-button color="warn" (click)="openDialog()" >Añadir Usuario</button>
 
-</mat-toolbar>
+</mat-toolbar >
 
-<app-table></app-table>
+<app-table #tabla ></app-table>

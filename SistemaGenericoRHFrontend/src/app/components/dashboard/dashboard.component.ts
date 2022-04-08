@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import { RegisterComponent } from '../inicio/register/register.component';
 import { LoginService } from '../../services/login.service';
+import { TableComponent } from './table/table.component';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -9,6 +11,7 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild('tabla') hijo!: TableComponent;
 
   constructor(public dialog: MatDialog, private loginService: LoginService) { }
 
@@ -24,8 +27,13 @@ export class DashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      this.hijo.obtenerUsuarios();
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  removerToken(){
+    this.loginService.removeToken();
   }
 
 

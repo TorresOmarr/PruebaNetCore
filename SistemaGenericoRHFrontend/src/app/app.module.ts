@@ -29,6 +29,7 @@ import { LoginComponent } from './components/inicio/login/login.component';
 import { RegisterComponent } from './components/inicio/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TableComponent } from './components/dashboard/table/table.component';
+import { ActivoPipe } from './pipes/activo.pipe';
 
 
 
@@ -42,7 +43,8 @@ import { TableComponent } from './components/dashboard/table/table.component';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    TableComponent
+    TableComponent,
+    ActivoPipe
   ],
   imports: [
     BrowserModule,
