@@ -35,7 +35,7 @@ export class TableComponent implements OnInit {
           this.dataSource.sort = this.sort;
         },
         error:(error) =>{
-
+          console.log(error);
         }
       }
     )
@@ -55,8 +55,11 @@ export class TableComponent implements OnInit {
       height: 'auto',
       width: '500px',
       data: row
-    }).afterClosed().subscribe(val => {     
-        this.obtenerUsuarios();      
+    }).afterClosed().subscribe(val => {  
+      if(val == 'actualizar'){
+        this.obtenerUsuarios();   
+      }   
+          
     })
   }
 

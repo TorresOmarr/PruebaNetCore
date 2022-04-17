@@ -105,6 +105,7 @@ export class RegisterComponent implements OnInit {
         this.tost.success({ detail: "Exito!", summary: res.message, duration: 4000 });
         this.dialogRef.close('actualizar');
       },error:error =>{
+        console.log(error);
         this.tost.error({ detail: "Hubo un error!", summary: error.error.message, duration: 4000 });
       }
     })

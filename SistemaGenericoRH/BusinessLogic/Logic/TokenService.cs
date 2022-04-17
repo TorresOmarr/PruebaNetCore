@@ -38,11 +38,14 @@ namespace BusinessLogic.Logic
             var tokenConfiguration = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
-                Expires = DateTime.Now.AddDays(1),
+                Expires = DateTime.UtcNow.AddSeconds(10),
                 SigningCredentials = Credentials,
                 Issuer = _config["Token:Issuer"]
            
             };
+
+            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(DateTime.UtcNow);
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenConfiguration);
